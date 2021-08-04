@@ -1,12 +1,14 @@
 package com.epam.weatherapi.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.epam.weatherapi.service.WeatherService;
 
+@CrossOrigin
 @RestController
 public class WeatherController {
 	
@@ -17,6 +19,7 @@ public class WeatherController {
 	@GetMapping("/weather/daily/{location}")
 	public String getDailyInfo(@PathVariable("location") String location) {
 		String weatherData = service.getDailyWeatherInfo(location);
+		System.out.println(weatherData);
 		return weatherData;
 	}
 	
@@ -32,5 +35,5 @@ public class WeatherController {
 		return weatherData;
 	}
 
-	}
+}
 	
